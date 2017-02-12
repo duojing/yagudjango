@@ -104,6 +104,30 @@
             -o-background-size: cover;
         }
 
+        .stdm_select {
+            height: 27px;
+            float: right;
+            margin-bottom: 20px;
+        }
+
+        .stdm_nav {
+            /*background-color: #000;*/
+            padding: 20px 30px;
+            /*opacity: 0.5;*/
+            display: block;
+        }
+
+        .clearfix { *zoom: 1; }
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both
+        }
+
+        .stdm_veiw {
+
+        }
+
     </style>
     <script>
         function over(obj) {
@@ -141,23 +165,49 @@
         </ul>
       </div>
     </nav>
-    <header class="momtong" style="padding: 30px;">
-        <div>
-            <form>
-                <select name="stadium">
-                    <option value="1">[두산/LG] 잠실야구장</option>
-                    <option value="2">[NC] 마산 가고파파크</option>
-                    <option value="3">[넥센] 고척 스카이돔</option>
-                    <option value="4">[KIA] 광주 챔피언스 필드</option>
-                    <option value="5">[SK] 인천 행복드림구장</option>
-                    <option value="6">[한화] 대전 이글스파크</option>
-                    <option value="7">[롯데] 사직야구장</option>
-                    <option value="8">[삼성] 대구 라이온즈파크</option>
-                    <option value="9">[KT] 수원 위즈파크</option>
-                </select>
-                <input type="submit" name="stadium" value="GO!">
-            </form>
+    <header class="momtong" style="padding: 30px 0;">
+        <div class="clearfix" style="margin-right: 10px;">
+            <div  class="stdm_select">
+                <form>
+                    <select name="stadium" style="height: 26px;">
+                        <option value="1">[두산/LG] 잠실야구장</option>
+                        <option value="2">[NC] 마산 가고파파크</option>
+                        <option value="3">[넥센] 고척 스카이돔</option>
+                        <option value="4">[KIA] 광주 챔피언스 필드</option>
+                        <option value="5">[SK] 인천 행복드림구장</option>
+                        <option value="6">[한화] 대전 이글스파크</option>
+                        <option value="7">[롯데] 사직야구장</option>
+                        <option value="8">[삼성] 대구 라이온즈파크</option>
+                        <option value="9">[KT] 수원 위즈파크</option>
+                    </select>
+                    <input type="submit" name="stadium" value="GO!">
+                </form>
+            </div>
         </div>
+
+        <div class="stdm_nav">
+            <div class="select_button">
+                <h3>직관 요소별 보기</h3>
+                <form>
+                    <button type="button">
+                        응원열기
+                    </button>
+                    <button type="button">
+                        경기관람
+                    </button>
+                    <button type="button">
+                        기타
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="stdm_veiw">
+                <img src="stdm_trans.png" style="width: 80%">
+            </div>
+        </div>
+
     </header>
 
 </body>
