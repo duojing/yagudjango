@@ -1,0 +1,30 @@
+<style>
+body {
+    background-color: lightskyblue;
+}
+</style>
+
+{% block content %}
+
+    <h1>야! 구장 고?</h1>
+
+    <h2>{{ gujang.name }}</h2>
+
+
+    {{ gujang.content|linebreaks }}
+
+    {% if gujang.basic %}
+    <img src="{{ gujang.basic.url }}" style="width = 100%"/>
+    {% else %}
+    <img src="/static/no_img.png" style="width = 100%" />
+    {% endif %}
+    
+
+    <a href="/project/{{ gujang.id }}">응원</a>
+    <a href="/project/{{ gujang.id }}">관람</a>
+    <a href="/project/{{ gujang.id }}">기타</a>
+
+    
+    
+
+{% endblock %}

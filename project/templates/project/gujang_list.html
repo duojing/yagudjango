@@ -1,0 +1,28 @@
+<style>
+body {
+    background-color: lightskyblue;
+}
+</style>
+
+{% block content %}
+<h1>야! 구장 고?</h1>
+    <ul>
+    {% for name in name_set %}
+        <li>
+            [{{ name.pk }}]
+            
+            <a href="/project/{{ name.pk }}"> {# URL Reverse 기능 미적용 #}
+                {{ name.name }}
+            </a>
+        {% if name.logo %}
+        {{ name.logo }}
+        <img src="{{ name.logo.url }}" />
+        {% else %}
+        <img src="/static/no_img.png" />
+        {% endif %}
+
+        </li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
