@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>회원가입</title>
+    <style>
+        body{
+            background-color : lightslategrey;
+        }
+    </style>
+</head>
+<body>
+    <h1>team name : 엉덩이를 위하여</strong>
+    <h2>project name : 야!구장고?</h2>
+    <br>
+    <h3>(검색)</h3>
+    <form method = 'GET' action="">
+        <input type="text" name = 'q' value = '{{ q }}'/>
+        <input type="submit" name = '검색'/>
+    </form>
+    <ul>
+        {% for post in qs %}
+        <li>
+        <a href="/{{ post.id }}">{{post.title}}</a>
+            {{post.updated_at}}
+        </li>
+            {% endfor %}
+    </ul>
+</body>
+</html>

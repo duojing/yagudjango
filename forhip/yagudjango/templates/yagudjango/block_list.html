@@ -1,0 +1,4 @@
+{% extends "yagudjango/layout.html" %}
+{% for block in block_list %}
+    <a href="{% url "yagudjango:block_detail" block.pk %}">{{ block.block_name }}</a>
+{% endfor %}
