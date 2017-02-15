@@ -1,13 +1,15 @@
 {% extends "yagudjango_nav.html" %}
+{% load staticfiles %}
 
 {% block title %}
     {{ Gujang.name }}
 {% endblock %}
 
-{% block style %}
+{% block head_extra %}
+    <style>
         @font-face {
             font-family: "1훈점보맘보";
-            src: url(fonts/HoonJumbomamboB.ttf);
+            src: url("{% static "fonts/HoonJumbomamboB.ttf" %}");
         }
 
         .momtong {
@@ -16,7 +18,7 @@
             width: 100%;
             height: 100%;
 
-            /*background: url(main_pic_white.jpg) no-repeat center center scroll;
+            /*background: "{% static "img/main_pic_white.jpg"%}" no-repeat center center scroll;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             background-size: cover;
@@ -83,14 +85,14 @@
             font-family: "1훈점보맘보";
             border: 1px solid;
         }
-{% endblock %}
+    </style>
 
-{% block script %}
+    <script>
         function over(obj) {
-            obj.src="lglogo.png";
+            obj.src="{% static "img/logo/lglogo.png" %}";
         }
         function out(obj) {
-            obj.src="doosanlogo.png";
+            obj.src="{% static "img/logo/doosanlogo.png" %}";
         }
 
         $(function() {
@@ -153,6 +155,7 @@
         $(document).ready(function(e) {
             $('img[usemap]').rwdImageMaps();
         });
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -197,16 +200,16 @@
                     </div>
 
                     <div id="layer-list">
-                        <div id="layer-1" class="layer"><img src="cheer.png"></div>
-                        <div id="layer-2" class="layer"><img src="watch.png"></div>
-                        <div id="layer-3" class="layer"><img src="real.png"></div>
-                        <div id="layer-4" class="layer"><img src="view.png"></div>
+                        <div id="layer-1" class="layer"><img src="{% static "img/jamsil/cheer.png" %}"></div>
+                        <div id="layer-2" class="layer"><img src="{% static "img/jamsil/watch.png" %}"></div>
+                        <div id="layer-3" class="layer"><img src="{% static "img/jamsil/real.png" %}"></div>
+                        <div id="layer-4" class="layer"><img src="{% static "img/jamsil/view.png" %}"></div>
                         <!-- 기타 -->
 
-                        <div id="layer-6" class="layer"><img src="base.png"></div>
-                        <div id="layer-7" class="layer"><img src="jamsil_stadium.png"></div>
+                        <div id="layer-6" class="layer"><img src="{% static "img/jamsil/base.png" %}"></div>
+                        <div id="layer-7" class="layer"><img src="{% static "img/jamsil/jamsil_stadium.png" %}"></div>
                         <div id="layer-8" class="layer">
-                            <img src="trans.png" usemap="#jamsil">
+                            <img src="{% static "img/jamsil/trans.png" %}" usemap="#jamsil">
                             <map name="jamsil">
                                 <area title="219" shape="poly" coords="395,832,540,721,596,783,457,904" href="/#/">
                             </map>
@@ -226,5 +229,5 @@
 
     </header>
 
-    <script src="js/jquery.rwdImageMaps.min.js"></script>
+    <script src="{% static "js/jquery.rwdImageMaps.min.js" %}"></script>
 {% endblock %}

@@ -6,7 +6,7 @@
     <style>
         @font-face {
             font-family: "1훈점보맘보";
-            src: "{% static "fonts/HoonJumbomamboB" %}"
+            src: url("{% static "fonts/HoonJumbomamboB.ttf" %}");
         }
 
         .header {
@@ -15,12 +15,13 @@
             width: 100%;
             height: 100%;
 
-            background: "{% static "img/bg/main_pic_dark.png" %}" no-repeat center center scroll;
+            background: url("{% static "img/bg/main_pic_dark.png" %}") no-repeat center center scroll;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             background-size: cover;
             -o-background-size: cover;
         }
+        
         .text-vertical-center {
             display: table-cell;
             text-align: center;
@@ -75,10 +76,10 @@
 
     <script>
         function over(obj) {
-            obj.src= "img/logo/lglogo.png";
+            obj.src= "{% static "img/logo/lglogo.png" %}";
         }
         function out(obj) {
-            obj.src= "img/logo/doosanlogo.png";
+            obj.src= "{% static "img/logo/doosanlogo.png" %}";
         }
     </script>
 {% endblock %}
