@@ -1,0 +1,213 @@
+{% extends "yagudjango_nav.html" %}
+
+{% block title %}
+    {{ block.name }}
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> <!-- 이거랑 아래꺼 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        .w3-display-container .mySlides {
+            text-align: center;
+        }
+
+        .block_view {
+            text-align: center;
+        }
+
+        .block_view h2 {
+            font-family: "1훈점보맘보";
+            text-align: center;
+        }
+
+        .pictures {
+            position: relative;
+        }
+
+        .block_map {
+            width: 55%;
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        .block_info {
+            width: 45%;
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        .block_info p, h3 {
+            padding: 0px 10px;
+            font-family: "1훈점보맘보";
+        }
+
+        .block_info .hash_tag {
+            color: #337ab7;
+        }
+
+        .block_info ul {
+            text-align: left;
+            font-family: "1훈점보맘보";
+        }
+
+        .blind {
+            background-color: gray;
+        }
+
+        .photo {
+            background-color: green;
+        }
+
+        .momtong {
+            display: table;
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            /*background: url(main_pic_white.jpg) no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;*/
+        }
+
+        .stdm_select {
+            height: 27px;
+            float: right;
+            margin-bottom: 20px;
+        }
+
+        .stdm_name h1 {    /*이거*/
+            /*background-color: #000;*/
+            padding: 0px 30px;
+            /*opacity: 0.5;*/
+            display: block;
+            font-family: "1훈점보맘보";
+        }
+
+        .clearfix { *zoom: 1; }
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both
+        }
+{% endblock %}
+
+{% block content %}
+    <header class="momtong" style="padding: 10px 0;">
+        <div class="clearfix" style="margin-right: 10px;">
+            <div  class="stdm_select">
+                <form>
+                    <select name="stadium" style="height: 26px;">
+                        <option value="1">[두산/LG] 잠실야구장</option>
+                        <option value="2">[NC] 마산 가고파파크</option>
+                        <option value="3">[넥센] 고척 스카이돔</option>
+                        <option value="4">[KIA] 광주 챔피언스 필드</option>
+                        <option value="5">[SK] 인천 행복드림구장</option>
+                        <option value="6">[한화] 대전 이글스파크</option>
+                        <option value="7">[롯데] 사직야구장</option>
+                        <option value="8">[삼성] 대구 라이온즈파크</option>
+                        <option value="9">[KT] 수원 위즈파크</option>
+                    </select>
+                    <input type="submit" name="stadium" value="GO!">
+                </form>
+            </div>
+        </div>
+
+        <div class="container stdm_name">
+            <h1>[두산/LG] 잠실 야구장</h1>
+        </div>
+        <div class="block_view container">
+            <h2>219블럭</h2>
+            <div class="pictures"> <!-- block -->
+                <div class="w3-content w3-display-container">
+                    <div class="w3-display-container mySlides">
+                        <img src="219_44_(25)_내.jpg" width="90%">
+                        <div class="w3-display-bottommiddle w3-middle w3-container w3-padding-16 w3-black">
+                            219블럭 1열 25번 내야뷰
+                        </div>
+                    </div>
+                    <div class="w3-display-container mySlides">
+                        <img src="219_45_(25)_외.jpg" width="90%">
+                        <div class="w3-display-bottommiddle w3-middle w3-container w3-padding-16 w3-black">
+                            219블럭 1열 25번 외야뷰
+                        </div>
+                    </div>
+
+                    <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
+                    <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1)">&#10095;</a>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="container" style="width: 100%">
+                <div class="block_map"> <!-- inline-block -->
+                    <table id="seat-table">
+                    {% with seat_list=block.get_seat_list %}
+                        {% for row_list in seat_list %}
+                        <tr>
+                            {% for row_idx, col_idx, seat in row_list %}
+                            <td>
+                                <div id="seat-{{ seat.pk }}" class="{% if seat.photo %}photo{% endif %} {% if seat.is_blind %}blind{% endif %}" {% if seat.photo %}data-photo-url="{{ seat.photo.url }}"{% endif %}>
+                                    {% if seat %}
+                                        {{ seat }}
+                                    {% endif %}
+                                </div>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                        </table>
+                    {% endwith %}
+                    <!-- <img src="219.jpg" style="width: 100%"> -->
+                </div>
+                <div class="block_info"> <!-- inline-block -->
+                    <p>응원열기 : 상</p>
+                    <p>경기관람 : 7 <small>/10</small></p>
+                    <p>예매난이도 : 상</p>
+                    <br>
+                    <p class="hash_tag">
+                        #적당히열정적인응원 #레드석의가성비갑 #응원과경기뷰를한번에 #엄친아블럭 #욕심많은당신에게
+                    </p>
+
+                    <br>
+
+                    <h3>Tip!</h3>
+                    <ul>
+                        <li>가까운 내야, 적당한 시야각으로 경기관람도 잡고!</li>
+                        <li>가까운 응원단상, 적당히 열정적인 분위기로 응원도 잡고!</li>
+                        <li>예매는 여전히 빡세지만, 단상 바로 앞 블럭보단 덜하다는 사실!</li>
+                        <li>블럭 중앙에 출구로 인한 시야방해 주의!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex-1].style.display = "block";
+        }
+    </script>
+{% endblock %}
