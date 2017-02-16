@@ -10,7 +10,7 @@ class Gujang(models.Model):
     sight_real = models.ImageField(blank=True)
     sight_overall = models.ImageField(blank=True)
     etc = models.ImageField(blank=True)
-    tag_at = models.ManyToManyField('Tag', blank=True)
+    tag_set = models.ManyToManyField('Tag', blank=True)
     tip = models.TextField(blank=True)
 
     def __str__(self):
@@ -28,7 +28,7 @@ class Block(models.Model):
         return self.block_name
 
     def get_seat_list(self):
-        seat_dict = { (seat.row, seat.col):seat for seat in self.seat_set.all() }
+        seat_dict = { (seat.row, seat.col):seat for seat in self.seat_set.all()}
         max_row = max(row for (row, col) in seat_dict.keys())
         max_col = max(col for (row, col) in seat_dict.keys())
         seat_list = []

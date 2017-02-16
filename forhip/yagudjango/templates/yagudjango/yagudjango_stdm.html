@@ -1,9 +1,16 @@
 {% extends "yagudjango_nav.html" %}
+<<<<<<< HEAD
 
 {% load staticfiles %}
 
 {% block title %}
     {{ gujang.name }}
+=======
+{% load staticfiles %}
+
+{% block title %}
+    {{ Gujang.name }}
+>>>>>>> c579b7c8939245052e0df28dbe7e349822f63aef
 {% endblock %}
 
 {% block head_extra %}
@@ -19,7 +26,11 @@
             width: 100%;
             height: 100%;
 
+<<<<<<< HEAD
             /*background: url(main_pic_white.jpg) no-repeat center center scroll;
+=======
+            /*background: "{% static "img/main_pic_white.jpg"%}" no-repeat center center scroll;
+>>>>>>> c579b7c8939245052e0df28dbe7e349822f63aef
             -webkit-background-size: cover;
             -moz-background-size: cover;
             background-size: cover;
@@ -87,7 +98,18 @@
             border: 1px solid;
         }
     </style>
+<<<<<<< HEAD
     <script>
+=======
+
+    <script>
+        function over(obj) {
+            obj.src="{% static "img/logo/lglogo.png" %}";
+        }
+        function out(obj) {
+            obj.src="{% static "img/logo/doosanlogo.png" %}";
+        }
+>>>>>>> c579b7c8939245052e0df28dbe7e349822f63aef
 
         $(function() {
             $('#btn-0').click(function() {
@@ -194,6 +216,7 @@
                     </div>
 
                     <div id="layer-list">
+<<<<<<< HEAD
                         <div id="layer-1" class="layer"><img src="{{ gujang.cheer.url }}"></div>
                         <div id="layer-2" class="layer"><img src="{{ gujang.sight.url }}"></div>
                         <div id="layer-3" class="layer"><img src="{{ gujang.sight_real.url }}"></div>
@@ -202,6 +225,16 @@
 
                         <div id="layer-6" class="layer"><img src="{{ gujang.line.url }}"></div>
                         <div id="layer-7" class="layer"><img src="{{ gujang.basic.url }}"></div>
+=======
+                        <div id="layer-1" class="layer"><img src="{% static "img/jamsil/cheer.png" %}"></div>
+                        <div id="layer-2" class="layer"><img src="{% static "img/jamsil/watch.png" %}"></div>
+                        <div id="layer-3" class="layer"><img src="{% static "img/jamsil/real.png" %}"></div>
+                        <div id="layer-4" class="layer"><img src="{% static "img/jamsil/view.png" %}"></div>
+                        <!-- 기타 -->
+
+                        <div id="layer-6" class="layer"><img src="{% static "img/jamsil/base.png" %}"></div>
+                        <div id="layer-7" class="layer"><img src="{% static "img/jamsil/jamsil_stadium.png" %}"></div>
+>>>>>>> c579b7c8939245052e0df28dbe7e349822f63aef
                         <div id="layer-8" class="layer">
                             <img src="{% static "img/jamsil/trans.png" %}" usemap="#jamsil">
                             <map name="jamsil">

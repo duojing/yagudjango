@@ -90,5 +90,9 @@ def comment_delete(request, post_pk, pk):
         'comment':comment,
     })
 
+def main(request):
+    return render(request, 'yagudjango/yagudjango_main.html')
 
+def second(request):
+    return render(request, 'yagudjango/yagudjango_stdm.html')
 
