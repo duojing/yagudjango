@@ -1,0 +1,117 @@
+{% extends "yagudjango_nav.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+    {{ gujang.name }}
+{% endblock %}
+
+{% block head_extra %}
+    <style>
+        @font-face {
+            font-family: "1훈점보맘보";
+            src: url("{% static "fonts/HoonJumbomamboB.ttf" %}");
+        }
+
+        .momtong {
+            display: table;
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            /*background: url(main_pic_white.jpg) no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;*/
+        }
+
+        .stdm_select {
+            height: 27px;
+            float: right;
+            margin-bottom: 20px;
+        }
+
+        .stdm_name {
+            /*background-color: #000;*/
+
+            /*opacity: 0.5;*/
+            display: block;
+            font-family: "1훈점보맘보";
+        }
+
+        .clearfix { *zoom: 1; }
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both
+        }
+
+        .stdm_view {
+            text-align: center;
+            /*background-color: pink;*/
+        }
+
+        .basic_img {
+            display: block;
+            width: 100%;
+            margin: auto;
+        }
+
+        .basic_img img {
+            width: 80%;
+        }
+
+        .basic_content {
+            font-family: "1훈점보맘보";
+            font-size: 12pt;
+        }
+
+        .text {
+            margin-bottom: 5px;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+    <header class="momtong" style="padding: 10px 0;">
+        <div class="clearfix" style="margin-right: 10px;">
+            <div  class="stdm_select">
+                <form>
+                    <select name="stadium" style="height: 26px;">
+                        <option value="1">[두산/LG] 잠실야구장</option>
+                        <option value="2">[NC] 마산 가고파파크</option>
+                        <option value="3">[넥센] 고척 스카이돔</option>
+                        <option value="4">[KIA] 광주 챔피언스 필드</option>
+                        <option value="5">[SK] 인천 행복드림구장</option>
+                        <option value="6">[한화] 대전 이글스파크</option>
+                        <option value="7">[롯데] 사직야구장</option>
+                        <option value="8">[삼성] 대구 라이온즈파크</option>
+                        <option value="9">[KT] 수원 위즈파크</option>
+                    </select>
+                    <input type="submit" name="stadium" value="GO!">
+                </form>
+            </div>
+        </div>
+
+        <div class="container stdm_name">
+            <h1>"{{ gujang.name }}"<small>는(은) 아직 준비중 :)<small></h1>
+            <br>
+            <div style="text-align: center;">
+                <div class="basic_img">
+                    <img src="{{ gujang.basic.url }}">
+                </div>
+                <br>
+                <br>
+                <div class="basic_content">
+                    <p class="text">{{ gujang.content|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <script src="{% static "js/jquery.rwdImageMaps.min.js" %}"></script>
+{% endblock %}
